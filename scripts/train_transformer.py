@@ -1,4 +1,4 @@
-# Fine-tunes a pretrained encoder + classification head (T1-T4). Needs a GPU, see notebooks/finetune_colab.ipynb
+# Fine-tunes a pretrained encoder + classification head (T1-T5). Needs a GPU, see notebooks/finetune_colab.ipynb
 # e.g. python scripts/train_transformer.py --model Davlan/afro-xlmr-base --run-name t2_afroxlmr_base
 import argparse
 import math
@@ -29,7 +29,22 @@ def parse_args():
     p.add_argument("--warmup-ratio", type=float, default=0.1)
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--save-model", action="store_true", help="keep the final model in models/<run-name>")
+    p.add_argument("--class-weights", action="store_true", help="balanced class weights in the loss")
     return p.parse_args()
+
+
+class WeightedTrainer(Trainer):
+    # same as Trainer but the cross-entropy loss is weighted per class
+    def __init__(self, class_weights, **kwargs):
+        super().__init__(**kwargs)
+        self.class_weights = class_weights
+
+    def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
+        labels = inputs.pop("labels")
+        outputs = model(**inputs)
+        loss_fn = torch.nn.CrossEntropyLoss(weight=self.class_weights.to(outputs.logits.device))
+        loss = loss_fn(outputs.logits.float(), labels)
+        return (loss, outputs) if return_outputs else loss
 
 
 def main():
@@ -76,11 +91,18 @@ def main():
         report_to="none",
         seed=args.seed,
     )
-    trainer = Trainer(
+    trainer_kwargs = dict(
         model=model, args=training_args, train_dataset=train_ds, eval_dataset=val_ds,
         processing_class=tokenizer, data_collator=DataCollatorWithPadding(tokenizer),
         compute_metrics=compute_metrics, callbacks=[EarlyStoppingCallback(early_stopping_patience=2)],
     )
+    if args.class_weights:
+        # same formula as sklearn's "balanced": n_samples / (n_classes * count), so rare topics weigh more
+        counts = np.bincount(train["label_id"], minlength=len(LABELS))
+        weights = torch.tensor(len(train) / (len(LABELS) * counts), dtype=torch.float32)
+        trainer = WeightedTrainer(weights, **trainer_kwargs)
+    else:
+        trainer = Trainer(**trainer_kwargs)
     trainer.train()
 
     val_pred = trainer.predict(val_ds).predictions.argmax(-1)
