@@ -1,0 +1,227 @@
+{
+  "name": "e8_bilstm_w2v_max",
+  "config": {
+    "run_name": "e8_bilstm_w2v_max",
+    "pooling": "max",
+    "w2v": true,
+    "max_len": 400,
+    "emb_dim": 300,
+    "hidden": 128,
+    "dropout": 0.4,
+    "lr": 0.001,
+    "epochs": 15,
+    "batch_size": 32,
+    "patience": 3,
+    "seed": 42,
+    "vocab_size": 50000,
+    "params": 15444518
+  },
+  "val": {
+    "accuracy": 0.7339,
+    "macro_f1": 0.6171,
+    "weighted_f1": 0.7343,
+    "per_class": {
+      "politics": {
+        "precision": 0.6272727272727273,
+        "recall": 0.7811320754716982,
+        "f1-score": 0.6957983193277311,
+        "support": 265.0
+      },
+      "sport": {
+        "precision": 0.9444444444444444,
+        "recall": 0.9315068493150684,
+        "f1-score": 0.9379310344827586,
+        "support": 146.0
+      },
+      "economy": {
+        "precision": 0.7261146496815286,
+        "recall": 0.6867469879518072,
+        "f1-score": 0.7058823529411765,
+        "support": 166.0
+      },
+      "health": {
+        "precision": 0.6917293233082706,
+        "recall": 0.5679012345679012,
+        "f1-score": 0.6237288135593221,
+        "support": 162.0
+      },
+      "entertainment": {
+        "precision": 0.8823529411764706,
+        "recall": 0.8053691275167785,
+        "f1-score": 0.8421052631578947,
+        "support": 149.0
+      },
+      "history": {
+        "precision": 0.7222222222222222,
+        "recall": 0.3939393939393939,
+        "f1-score": 0.5098039215686274,
+        "support": 33.0
+      },
+      "technology": {
+        "precision": 0.5,
+        "recall": 0.5652173913043478,
+        "f1-score": 0.5306122448979592,
+        "support": 23.0
+      },
+      "tourism": {
+        "precision": 0.5,
+        "recall": 0.6,
+        "f1-score": 0.5454545454545454,
+        "support": 5.0
+      },
+      "culture": {
+        "precision": 0.6666666666666666,
+        "recall": 0.5,
+        "f1-score": 0.5714285714285714,
+        "support": 12.0
+      },
+      "fashion": {
+        "precision": 0.125,
+        "recall": 0.16666666666666666,
+        "f1-score": 0.14285714285714285,
+        "support": 6.0
+      },
+      "religion": {
+        "precision": 0.8055555555555556,
+        "recall": 0.8656716417910447,
+        "f1-score": 0.8345323741007195,
+        "support": 67.0
+      },
+      "environment": {
+        "precision": 0.2777777777777778,
+        "recall": 0.8333333333333334,
+        "f1-score": 0.4166666666666667,
+        "support": 6.0
+      },
+      "education": {
+        "precision": 0.6666666666666666,
+        "recall": 0.35294117647058826,
+        "f1-score": 0.46153846153846156,
+        "support": 17.0
+      },
+      "relationship": {
+        "precision": 0.8888888888888888,
+        "recall": 0.7619047619047619,
+        "f1-score": 0.8205128205128205,
+        "support": 63.0
+      },
+      "accuracy": 0.7339285714285714,
+      "macro avg": {
+        "precision": 0.6446208474043729,
+        "recall": 0.6294521885880994,
+        "f1-score": 0.6170608951781713,
+        "support": 1120.0
+      },
+      "weighted avg": {
+        "precision": 0.7479798996697186,
+        "recall": 0.7339285714285714,
+        "f1-score": 0.7343214360186512,
+        "support": 1120.0
+      }
+    }
+  },
+  "test": {
+    "accuracy": 0.6218,
+    "macro_f1": 0.4611,
+    "weighted_f1": 0.6296,
+    "per_class": {
+      "politics": {
+        "precision": 0.4417808219178082,
+        "recall": 0.819047619047619,
+        "f1-score": 0.5739710789766407,
+        "support": 315.0
+      },
+      "sport": {
+        "precision": 0.9454022988505747,
+        "recall": 0.8844086021505376,
+        "f1-score": 0.9138888888888889,
+        "support": 744.0
+      },
+      "economy": {
+        "precision": 0.4268774703557312,
+        "recall": 0.6206896551724138,
+        "f1-score": 0.5058548009367682,
+        "support": 174.0
+      },
+      "health": {
+        "precision": 0.29069767441860467,
+        "recall": 0.5514705882352942,
+        "f1-score": 0.38071065989847713,
+        "support": 272.0
+      },
+      "entertainment": {
+        "precision": 0.8339100346020761,
+        "recall": 0.6227390180878553,
+        "f1-score": 0.7130177514792899,
+        "support": 774.0
+      },
+      "history": {
+        "precision": 0.05263157894736842,
+        "recall": 0.36363636363636365,
+        "f1-score": 0.09195402298850575,
+        "support": 11.0
+      },
+      "technology": {
+        "precision": 0.47333333333333333,
+        "recall": 0.6893203883495146,
+        "f1-score": 0.5612648221343873,
+        "support": 103.0
+      },
+      "tourism": {
+        "precision": 0.5625,
+        "recall": 0.23684210526315788,
+        "f1-score": 0.3333333333333333,
+        "support": 76.0
+      },
+      "culture": {
+        "precision": 0.6578947368421053,
+        "recall": 0.18115942028985507,
+        "f1-score": 0.2840909090909091,
+        "support": 138.0
+      },
+      "fashion": {
+        "precision": 0.41379310344827586,
+        "recall": 0.26373626373626374,
+        "f1-score": 0.3221476510067114,
+        "support": 91.0
+      },
+      "religion": {
+        "precision": 0.7927461139896373,
+        "recall": 0.59765625,
+        "f1-score": 0.6815144766146993,
+        "support": 256.0
+      },
+      "environment": {
+        "precision": 0.5161290322580645,
+        "recall": 0.32,
+        "f1-score": 0.3950617283950617,
+        "support": 100.0
+      },
+      "education": {
+        "precision": 0.4444444444444444,
+        "recall": 0.05714285714285714,
+        "f1-score": 0.10126582278481013,
+        "support": 70.0
+      },
+      "relationship": {
+        "precision": 0.7625570776255708,
+        "recall": 0.49117647058823527,
+        "f1-score": 0.5974955277280859,
+        "support": 340.0
+      },
+      "accuracy": 0.621824480369515,
+      "macro avg": {
+        "precision": 0.5439069800738282,
+        "recall": 0.47850182869285485,
+        "f1-score": 0.46111224816118346,
+        "support": 3464.0
+      },
+      "weighted avg": {
+        "precision": 0.6948026662890933,
+        "recall": 0.621824480369515,
+        "f1-score": 0.6296385824332822,
+        "support": 3464.0
+      }
+    }
+  }
+}

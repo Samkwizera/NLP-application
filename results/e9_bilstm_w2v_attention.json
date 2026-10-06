@@ -1,0 +1,227 @@
+{
+  "name": "e9_bilstm_w2v_attention",
+  "config": {
+    "run_name": "e9_bilstm_w2v_attention",
+    "pooling": "attention",
+    "w2v": true,
+    "max_len": 400,
+    "emb_dim": 300,
+    "hidden": 128,
+    "dropout": 0.4,
+    "lr": 0.001,
+    "epochs": 15,
+    "batch_size": 32,
+    "patience": 3,
+    "seed": 42,
+    "vocab_size": 50000,
+    "params": 15510566
+  },
+  "val": {
+    "accuracy": 0.7518,
+    "macro_f1": 0.6331,
+    "weighted_f1": 0.7483,
+    "per_class": {
+      "politics": {
+        "precision": 0.6645161290322581,
+        "recall": 0.7773584905660378,
+        "f1-score": 0.7165217391304348,
+        "support": 265.0
+      },
+      "sport": {
+        "precision": 0.9315068493150684,
+        "recall": 0.9315068493150684,
+        "f1-score": 0.9315068493150684,
+        "support": 146.0
+      },
+      "economy": {
+        "precision": 0.782608695652174,
+        "recall": 0.6506024096385542,
+        "f1-score": 0.7105263157894737,
+        "support": 166.0
+      },
+      "health": {
+        "precision": 0.7205882352941176,
+        "recall": 0.6049382716049383,
+        "f1-score": 0.6577181208053692,
+        "support": 162.0
+      },
+      "entertainment": {
+        "precision": 0.875,
+        "recall": 0.8456375838926175,
+        "f1-score": 0.8600682593856656,
+        "support": 149.0
+      },
+      "history": {
+        "precision": 0.6333333333333333,
+        "recall": 0.5757575757575758,
+        "f1-score": 0.6031746031746031,
+        "support": 33.0
+      },
+      "technology": {
+        "precision": 0.5555555555555556,
+        "recall": 0.43478260869565216,
+        "f1-score": 0.4878048780487805,
+        "support": 23.0
+      },
+      "tourism": {
+        "precision": 0.5,
+        "recall": 0.6,
+        "f1-score": 0.5454545454545454,
+        "support": 5.0
+      },
+      "culture": {
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1-score": 0.5,
+        "support": 12.0
+      },
+      "fashion": {
+        "precision": 0.75,
+        "recall": 0.5,
+        "f1-score": 0.6,
+        "support": 6.0
+      },
+      "religion": {
+        "precision": 0.7792207792207793,
+        "recall": 0.8955223880597015,
+        "f1-score": 0.8333333333333334,
+        "support": 67.0
+      },
+      "environment": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 6.0
+      },
+      "education": {
+        "precision": 0.5714285714285714,
+        "recall": 0.7058823529411765,
+        "f1-score": 0.631578947368421,
+        "support": 17.0
+      },
+      "relationship": {
+        "precision": 0.7142857142857143,
+        "recall": 0.873015873015873,
+        "f1-score": 0.7857142857142857,
+        "support": 63.0
+      },
+      "accuracy": 0.7517857142857143,
+      "macro avg": {
+        "precision": 0.6412888473655408,
+        "recall": 0.6353574573919426,
+        "f1-score": 0.63310013410857,
+        "support": 1120.0
+      },
+      "weighted avg": {
+        "precision": 0.7524285424011714,
+        "recall": 0.7517857142857143,
+        "f1-score": 0.7482570158708078,
+        "support": 1120.0
+      }
+    }
+  },
+  "test": {
+    "accuracy": 0.7168,
+    "macro_f1": 0.5348,
+    "weighted_f1": 0.7117,
+    "per_class": {
+      "politics": {
+        "precision": 0.5642857142857143,
+        "recall": 0.7523809523809524,
+        "f1-score": 0.6448979591836734,
+        "support": 315.0
+      },
+      "sport": {
+        "precision": 0.9546742209631728,
+        "recall": 0.9059139784946236,
+        "f1-score": 0.9296551724137931,
+        "support": 744.0
+      },
+      "economy": {
+        "precision": 0.485,
+        "recall": 0.5574712643678161,
+        "f1-score": 0.5187165775401069,
+        "support": 174.0
+      },
+      "health": {
+        "precision": 0.5804195804195804,
+        "recall": 0.6102941176470589,
+        "f1-score": 0.5949820788530465,
+        "support": 272.0
+      },
+      "entertainment": {
+        "precision": 0.8298153034300791,
+        "recall": 0.8126614987080103,
+        "f1-score": 0.8211488250652742,
+        "support": 774.0
+      },
+      "history": {
+        "precision": 0.06796116504854369,
+        "recall": 0.6363636363636364,
+        "f1-score": 0.12280701754385964,
+        "support": 11.0
+      },
+      "technology": {
+        "precision": 0.5357142857142857,
+        "recall": 0.7281553398058253,
+        "f1-score": 0.6172839506172839,
+        "support": 103.0
+      },
+      "tourism": {
+        "precision": 0.7727272727272727,
+        "recall": 0.2236842105263158,
+        "f1-score": 0.3469387755102041,
+        "support": 76.0
+      },
+      "culture": {
+        "precision": 0.6491228070175439,
+        "recall": 0.26811594202898553,
+        "f1-score": 0.37948717948717947,
+        "support": 138.0
+      },
+      "fashion": {
+        "precision": 0.7058823529411765,
+        "recall": 0.5274725274725275,
+        "f1-score": 0.6037735849056604,
+        "support": 91.0
+      },
+      "religion": {
+        "precision": 0.7954545454545454,
+        "recall": 0.68359375,
+        "f1-score": 0.7352941176470589,
+        "support": 256.0
+      },
+      "environment": {
+        "precision": 0.9,
+        "recall": 0.18,
+        "f1-score": 0.3,
+        "support": 100.0
+      },
+      "education": {
+        "precision": 0.2631578947368421,
+        "recall": 0.07142857142857142,
+        "f1-score": 0.11235955056179775,
+        "support": 70.0
+      },
+      "relationship": {
+        "precision": 0.6696629213483146,
+        "recall": 0.8764705882352941,
+        "f1-score": 0.759235668789809,
+        "support": 340.0
+      },
+      "accuracy": 0.7168013856812933,
+      "macro avg": {
+        "precision": 0.6267055760062193,
+        "recall": 0.5595718841042583,
+        "f1-score": 0.5347557470084819,
+        "support": 3464.0
+      },
+      "weighted avg": {
+        "precision": 0.7450286544773161,
+        "recall": 0.7168013856812933,
+        "f1-score": 0.7116971691817959,
+        "support": 3464.0
+      }
+    }
+  }
+}

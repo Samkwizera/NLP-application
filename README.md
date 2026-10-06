@@ -38,6 +38,7 @@ scripts/
   train_transformer.py  Transformer fine-tuning T1-T5
 notebooks/gpu_experiments.ipynb   runs E7-E9 and T1-T5 on a free GPU (Kaggle/Colab)
 notebooks/kaggle_run1.ipynb       first Kaggle run (E7-E9, T1-T3 outputs)
+notebooks/kaggle_run2.ipynb       full Kaggle run (E7-E9, T1-T5), the reported results
 app/app.py          Gradio web app
 results/            metrics JSON per experiment, confusion matrices, predictions
 ```
