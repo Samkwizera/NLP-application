@@ -1,0 +1,6 @@
+# GPU training (Colab/Kaggle, Python 3.10-3.12): requirements.txt plus these
+-r requirements.txt
+datasets>=3.0
+accelerate>=1.0
+gensim>=4.3
+sentencepiece
