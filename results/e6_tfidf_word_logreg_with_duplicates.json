@@ -1,0 +1,217 @@
+{
+  "name": "e6_tfidf_word_logreg_with_duplicates",
+  "config": {
+    "features": "tfidf word 1-2gram",
+    "clf": "logreg",
+    "train": "official train incl. duplicates",
+    "selected_hparam": 16
+  },
+  "val": {
+    "accuracy": 0.7848,
+    "macro_f1": 0.5856,
+    "weighted_f1": 0.7742,
+    "per_class": {
+      "politics": {
+        "precision": 0.703125,
+        "recall": 0.8490566037735849,
+        "f1-score": 0.7692307692307693,
+        "support": 265.0
+      },
+      "sport": {
+        "precision": 0.9714285714285714,
+        "recall": 0.9315068493150684,
+        "f1-score": 0.951048951048951,
+        "support": 146.0
+      },
+      "economy": {
+        "precision": 0.7191011235955056,
+        "recall": 0.7710843373493976,
+        "f1-score": 0.7441860465116279,
+        "support": 166.0
+      },
+      "health": {
+        "precision": 0.7070063694267515,
+        "recall": 0.6851851851851852,
+        "f1-score": 0.6959247648902821,
+        "support": 162.0
+      },
+      "entertainment": {
+        "precision": 0.8509316770186336,
+        "recall": 0.9194630872483222,
+        "f1-score": 0.8838709677419355,
+        "support": 149.0
+      },
+      "history": {
+        "precision": 0.8095238095238095,
+        "recall": 0.5151515151515151,
+        "f1-score": 0.6296296296296297,
+        "support": 33.0
+      },
+      "technology": {
+        "precision": 0.8,
+        "recall": 0.17391304347826086,
+        "f1-score": 0.2857142857142857,
+        "support": 23.0
+      },
+      "tourism": {
+        "precision": 1.0,
+        "recall": 0.4,
+        "f1-score": 0.5714285714285714,
+        "support": 5.0
+      },
+      "culture": {
+        "precision": 0.6,
+        "recall": 0.25,
+        "f1-score": 0.35294117647058826,
+        "support": 12.0
+      },
+      "fashion": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 6.0
+      },
+      "religion": {
+        "precision": 0.9016393442622951,
+        "recall": 0.8208955223880597,
+        "f1-score": 0.859375,
+        "support": 67.0
+      },
+      "environment": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 6.0
+      },
+      "education": {
+        "precision": 0.8,
+        "recall": 0.47058823529411764,
+        "f1-score": 0.5925925925925926,
+        "support": 17.0
+      },
+      "relationship": {
+        "precision": 0.8833333333333333,
+        "recall": 0.8412698412698413,
+        "f1-score": 0.8617886178861789,
+        "support": 63.0
+      },
+      "accuracy": 0.7848214285714286,
+      "macro avg": {
+        "precision": 0.6961492306134929,
+        "recall": 0.5448653014609538,
+        "f1-score": 0.5855522409389581,
+        "support": 1120.0
+      },
+      "weighted avg": {
+        "precision": 0.7819870146858884,
+        "recall": 0.7848214285714286,
+        "f1-score": 0.7741582998668791,
+        "support": 1120.0
+      }
+    }
+  },
+  "test": {
+    "accuracy": 0.6902,
+    "macro_f1": 0.4251,
+    "weighted_f1": 0.6578,
+    "per_class": {
+      "politics": {
+        "precision": 0.5,
+        "recall": 0.8031746031746032,
+        "f1-score": 0.6163215590742996,
+        "support": 315.0
+      },
+      "sport": {
+        "precision": 0.9542302357836339,
+        "recall": 0.9247311827956989,
+        "f1-score": 0.9392491467576792,
+        "support": 744.0
+      },
+      "economy": {
+        "precision": 0.4034582132564842,
+        "recall": 0.8045977011494253,
+        "f1-score": 0.5374280230326296,
+        "support": 174.0
+      },
+      "health": {
+        "precision": 0.473551637279597,
+        "recall": 0.6911764705882353,
+        "f1-score": 0.5620328849028401,
+        "support": 272.0
+      },
+      "entertainment": {
+        "precision": 0.7579693034238488,
+        "recall": 0.8294573643410853,
+        "f1-score": 0.7921036397285626,
+        "support": 774.0
+      },
+      "history": {
+        "precision": 0.12,
+        "recall": 0.5454545454545454,
+        "f1-score": 0.19672131147540983,
+        "support": 11.0
+      },
+      "technology": {
+        "precision": 0.8545454545454545,
+        "recall": 0.4563106796116505,
+        "f1-score": 0.5949367088607594,
+        "support": 103.0
+      },
+      "tourism": {
+        "precision": 0.8333333333333334,
+        "recall": 0.06578947368421052,
+        "f1-score": 0.12195121951219512,
+        "support": 76.0
+      },
+      "culture": {
+        "precision": 1.0,
+        "recall": 0.07246376811594203,
+        "f1-score": 0.13513513513513514,
+        "support": 138.0
+      },
+      "fashion": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 91.0
+      },
+      "religion": {
+        "precision": 0.8176100628930818,
+        "recall": 0.5078125,
+        "f1-score": 0.6265060240963856,
+        "support": 256.0
+      },
+      "environment": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 100.0
+      },
+      "education": {
+        "precision": 0.2,
+        "recall": 0.014285714285714285,
+        "f1-score": 0.02666666666666667,
+        "support": 70.0
+      },
+      "relationship": {
+        "precision": 0.778393351800554,
+        "recall": 0.8264705882352941,
+        "f1-score": 0.8017118402282454,
+        "support": 340.0
+      },
+      "accuracy": 0.690242494226328,
+      "macro avg": {
+        "precision": 0.5495065423082849,
+        "recall": 0.4672660422454575,
+        "f1-score": 0.4250545828193434,
+        "support": 3464.0
+      },
+      "weighted avg": {
+        "precision": 0.7020082972240455,
+        "recall": 0.690242494226328,
+        "f1-score": 0.6577973110365714,
+        "support": 3464.0
+      }
+    }
+  }
+}
