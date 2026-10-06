@@ -1,6 +1,7 @@
 # Fine-tunes a pretrained encoder + classification head (T1-T4). Needs a GPU, see notebooks/finetune_colab.ipynb
 # e.g. python scripts/train_transformer.py --model Davlan/afro-xlmr-base --run-name t2_afroxlmr_base
 import argparse
+import math
 import sys
 from pathlib import Path
 
@@ -62,7 +63,8 @@ def main():
         per_device_train_batch_size=args.batch_size,
         per_device_eval_batch_size=args.batch_size * 2,
         weight_decay=args.weight_decay,
-        warmup_ratio=args.warmup_ratio,
+        # newer transformers dropped warmup_ratio, so turn the ratio into a step count
+        warmup_steps=int(math.ceil(len(train_ds) / args.batch_size) * args.epochs * args.warmup_ratio),
         lr_scheduler_type="linear",
         eval_strategy="epoch",
         save_strategy="epoch",
