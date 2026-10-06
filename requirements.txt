@@ -3,6 +3,7 @@ pandas>=2.2
 scikit-learn>=1.5
 matplotlib>=3.8
 seaborn>=0.13
+tabulate>=0.9
 torch>=2.3
 transformers>=4.46
 gradio>=5.0
