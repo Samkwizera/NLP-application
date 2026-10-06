@@ -35,8 +35,9 @@ scripts/
   prepare_data.py       download + audit + build splits
   train_baseline.py     TF-IDF experiments E1-E6 (CPU, ~50 min)
   train_bilstm.py       BiLSTM experiments E7-E9
-  train_transformer.py  Transformer fine-tuning T1-T4
-notebooks/finetune_colab.ipynb   runs E7-E9 and T1-T4 on a free GPU
+  train_transformer.py  Transformer fine-tuning T1-T5
+notebooks/gpu_experiments.ipynb   runs E7-E9 and T1-T5 on a free GPU (Kaggle/Colab)
+notebooks/kaggle_run1.ipynb       first Kaggle run (E7-E9, T1-T3 outputs)
 app/app.py          Gradio web app
 results/            metrics JSON per experiment, confusion matrices, predictions
 ```
@@ -47,7 +48,7 @@ python -m venv .venv && .venv/Scripts/activate      # Linux/Mac: source .venv/bi
 pip install -r requirements.txt
 python scripts/prepare_data.py
 python scripts/train_baseline.py
-# GPU experiments: open notebooks/finetune_colab.ipynb in Colab and run all cells
+# GPU experiments: import notebooks/gpu_experiments.ipynb into Kaggle, Save & Run All
 python app/app.py
 ```
 

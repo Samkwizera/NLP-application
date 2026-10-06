@@ -1,4 +1,4 @@
-# Fine-tunes a pretrained encoder + classification head (T1-T5). Needs a GPU, see notebooks/finetune_colab.ipynb
+# Fine-tunes a pretrained encoder + classification head (T1-T5). Needs a GPU, see notebooks/gpu_experiments.ipynb
 # e.g. python scripts/train_transformer.py --model Davlan/afro-xlmr-base --run-name t2_afroxlmr_base
 import argparse
 import math
