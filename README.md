@@ -39,7 +39,7 @@ scripts/
 notebooks/gpu_experiments.ipynb   runs E7-E9 and T1-T5 on a free GPU (Kaggle/Colab)
 notebooks/kaggle_run1.ipynb       first Kaggle run (E7-E9, T1-T3 outputs)
 notebooks/kaggle_run2.ipynb       full Kaggle run (E7-E9, T1-T5), the reported results
-app/app.py          Gradio web app
+app/app.py          Streamlit web app (app/requirements.txt is what Streamlit Cloud installs)
 results/            metrics JSON per experiment, confusion matrices, predictions
 ```
 
@@ -50,7 +50,7 @@ pip install -r requirements.txt
 python scripts/prepare_data.py
 python scripts/train_baseline.py
 # GPU experiments: import notebooks/gpu_experiments.ipynb into Kaggle, Save & Run All
-python app/app.py
+streamlit run app/app.py
 ```
 
 ## Results
@@ -59,4 +59,4 @@ _TODO: experiment table_
 ## Acknowledgements
 KINNEWS dataset (Niyongabo et al., 2020). Pretrained models: XLM-R (Conneau et al., 2020),
 AfroXLMR (Alabi et al., 2022), AfriBERTa (Ogueji et al., 2021). Libraries: Hugging Face Transformers, scikit-learn,
-PyTorch, gensim, Gradio.
+PyTorch, gensim, Streamlit.
