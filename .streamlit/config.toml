@@ -1,0 +1,3 @@
+[server]
+# the watcher crawls every transformers submodule and spams torchvision import errors
+fileWatcherType = "none"
