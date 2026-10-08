@@ -28,6 +28,26 @@ Data audit (`scripts/prepare_data.py`):
 
 Final splits: **train 6,344 / val 1,120 (stratified, same sources as train) / test 3,464 (official test, deduplicated)**.
 
+A random 9:1 split of the official train set (as used in the original paper) gets ~90% accuracy because 56% of its
+validation articles also appear in training (`scripts/check_leakage.py`).
+
+## Methodology
+Every hyperparameter and model choice was made on validation macro-F1; test was only used for reporting.
+
+- **Preprocessing**: Unicode normalisation, one apostrophe character (Kinyarwanda uses it for vowel elision,
+  e.g. *y'abantu*), URLs removed. Classical/LSTM models also lowercase and split elided forms (*y abantu*).
+- **Baseline (E1)**: TF-IDF word 1-2 grams + logistic regression. Variants E2-E6 test other classifiers,
+  character n-grams, class weights, the tokenisation choice and the duplicated data.
+- **BiLSTM (E7-E9)**: 300-d embeddings (random or Word2Vec skip-gram trained on the train set) -> 1-layer BiLSTM
+  (128 per direction) -> max or additive-attention pooling -> linear layer.
+- **Transformers (T1-T5)**: XLM-R, AfroXLMR and AfriBERTa base, fine-tuned end to end with a classification head
+  (lr 3e-5, 5 epochs, 10% warmup, early stopping). The best (AfriBERTa) was retrained with 512 tokens (T4) and with
+  class-weighted cross-entropy, weight = N / (14 x n_class) (T5, deployed).
+- **Metrics**: macro-F1 (main), accuracy, per-class precision/recall, confusion matrices, error analysis by topic,
+  news outlet and confidence.
+
+The full write-up is in the report.
+
 ## Repository layout
 ```
 src/kinnews/        shared code: text normalisation, data loading, metrics
@@ -83,7 +103,7 @@ Main findings:
 - Class weighting gave the largest single gain for both TF-IDF (E1 -> E5) and AfriBERTa (T4 -> T5).
 - Word2Vec and attention both helped the BiLSTM (E7 -> E8 -> E9).
 - The deduplicated data loses nothing compared with the duplicated official set (E1 vs E6).
-- Repeated runs moved by up to ~2 points, so smaller differences are treated as noise.
+- Repeated runs moved by up to ~3 points, so smaller differences are treated as noise.
 
 Error analysis ([results/error_analysis.md](results/error_analysis.md)): accuracy is 88% on the test source seen in
 training and 61-66% on unseen sources. Many errors come from source-specific labels (e.g. advice columns and
@@ -92,4 +112,13 @@ horoscopes labelled *education*) and articles that cover two topics (fashion/ent
 ## Acknowledgements
 KINNEWS dataset (Niyongabo et al., 2020). Pretrained models: XLM-R (Conneau et al., 2020),
 AfroXLMR (Alabi et al., 2022), AfriBERTa (Ogueji et al., 2021). Libraries: Hugging Face Transformers, scikit-learn,
-PyTorch, gensim, Streamlit.
+PyTorch, gensim, Streamlit. GPU training on Kaggle Notebooks.
+
+## Data and licence notes
+The copyright of the KINNEWS articles stays with the original Rwandan publishers (see the dataset's readme). This
+repo does not redistribute the corpus: `scripts/prepare_data.py` downloads it from the authors' public mirror. The
+five example articles shown in the web app are taken from the KINNEWS test set and are used only for
+non-commercial academic demonstration.
+
+AI use: Claude (Anthropic) was used as an assistant for coding, data analysis and drafting; all code and results
+were run, checked and are owned by the author.
