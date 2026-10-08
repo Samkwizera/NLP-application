@@ -12,7 +12,7 @@ multilingual / African-centric Transformers. Pays particular attention to **gene
 | **Fine-tuned model** | https://huggingface.co/Samkwizera/kinnews-topic-classifier |
 
 ## Problem
-Most of the news written in Kinyarwanda (about 12M speakers) has no automatic topic tagging. Topic classification
+Kinyarwanda is spoken by roughly 30 million people (Niyongabo et al., 2020), but most news written in it has no automatic topic tagging. Topic classification
 helps with news aggregation, search and media monitoring. It is also a standard benchmark for low-resource NLP.
 
 ## Dataset
@@ -36,6 +36,8 @@ scripts/
   train_baseline.py     TF-IDF experiments E1-E6 (CPU, ~50 min)
   train_bilstm.py       BiLSTM experiments E7-E9
   train_transformer.py  Transformer fine-tuning T1-T5
+  check_leakage.py      shows how duplicates inflate a random-split score
+  error_analysis.py     per-topic, per-outlet and confidence analysis of the final model
 notebooks/gpu_experiments.ipynb   runs E7-E9 and T1-T5 on a free GPU (Kaggle/Colab)
 notebooks/kaggle_run1.ipynb       first Kaggle run (E7-E9, T1-T3 outputs)
 notebooks/kaggle_run2.ipynb       full Kaggle run (E7-E9, T1-T5), the reported results
